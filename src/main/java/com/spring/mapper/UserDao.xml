@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+        <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.spring.dao.UserDao">
-    <select id="findByName" resultType="java.lang.String">
-        select * from user where name = #{name}
+
+    <resultMap id="userMapper" type="com.spring.pojo.User">
+        <id property="id" column="id"/>
+        <result property="userName" column="username"/>
+        <result property="password" column="password"/>
+        <result property="email" column="email"/>
+        <result property="isLock" column="isLock"/>
+        <result property="rePassword" column="repassword"/>
+
+    </resultMap>
+
+    <insert id="createUser">
+        insert into user (username, password, email) values (#{name}, #{password}, #{email})
+    </insert>
+
+    <select id="findByName" resultType="com.spring.pojo.User" parameterType="string">
+        select * from user where username = #{name}
     </select>
+    <select id="findAll" resultMap="userMapper">
+        select * from user
+    </select>
+
 </mapper>

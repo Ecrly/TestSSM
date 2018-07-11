@@ -26,10 +26,20 @@
     <!-- mysql驱动版本号 -->
     <mysql-driver.version>5.1.29</mysql-driver.version>
 
+    <!--json 版本号-->
+    <jackson.version>2.8.7</jackson.version>
+
   </properties>
 
 
   <dependencies>
+
+    <!-- 导入java ee jar 包 -->
+    <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+      <version>7.0</version>
+    </dependency>
 
     <!-- 添加spring核心依赖 -->
 
@@ -138,6 +148,34 @@
       <version>1.2.2</version>
     </dependency>
 
+
+    <!--this two type not support complicated beans-->
+    <!--json-->
+
+    <!--<dependency>-->
+      <!--<groupId>com.fasterxml.jackson.core</groupId>-->
+      <!--<artifactId>jackson-core</artifactId>-->
+      <!--<version>${jackson.version}</version>-->
+    <!--</dependency>-->
+    <!--<dependency>-->
+      <!--<groupId>com.fasterxml.jackson.core</groupId>-->
+      <!--<artifactId>jackson-databind</artifactId>-->
+      <!--<version>${jackson.version}</version>-->
+    <!--</dependency>-->
+
+
+    <!--<dependency>-->
+      <!--<groupId>com.alibaba</groupId>-->
+      <!--<artifactId>fastjson</artifactId>-->
+      <!--<version>1.2.21</version>-->
+    <!--</dependency>-->
+
+
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.8.2</version>
+    </dependency>
 
     <!-- 导入dbcp的jar包，用来在applicationContext.xml中配置数据库 -->
 
